@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz-Wiz</title>
+	<link rel="stylesheet" type="text/css" href="Quiz.css">
+	<link rel="stylesheet" type="text/css" href="css\bootstrapp.css">
+	<link rel="stylesheet" type="text/css" href="css\w3.css">
+	<style type="text/css">
+		body
+		{
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: black;
+			background: linear-gradient(315deg,#ff0057,#e64a19);
+		}
+		.jumbotron
+		{
+			padding-bottom: 25px;
+			padding-top: 25px;
+			opacity: 0;
+			animation: fadein 0.2s;
+			animation-fill-mode: forwards;
+			animation-delay: 3s;
+			width: 100%;
+		}
+		 h2
+		{
+			font-size: 5em;
+			margin: 0;
+			padding: 0;
+			padding-bottom: 25px;
+		}
+	
+		.desktop img
+		{
+			position: absolute;
+			top: 50%;
+			left: 45%;
+			height: 100px;
+			width: 100px;
+			animation: intro 3s;
+			animation-fill-mode: forwards;	
+		}
+		.mobile img
+		{
+			display: none;
+		}
+		@keyframes intro
+		{
+			0%
+			{
+				transform: scale(0);
+			}
+			50%
+			{
+				transform: scale(5);
+				top: 50%;
+				left: 44%;
+			}
+			90%
+			{
+				transform: scale(5);
+				top: 50%;
+				left: 44%;
+			}
+			100%
+			{
+				transform: scale(1);
+				top: 3%;
+				left: 30%;
+			}
+		}
+		
+		.w3-container
+		{
+			position: absolute;
+			top: 28%;
+		}
+		form
+		{
+			color: #fff;
+			height: 950px;
+			width: 500px;
+			border-radius: 20px;
+			background: rgba(0,0,0,0.7);
+			animation: fadein 0.2s;
+			animation-fill-mode: forwards;
+			animation-delay: 3s;
+			opacity: 0;
+			visibility: ;
+		}
+		 h3
+		{
+			padding-top: 30px;
+			font-size: 3em;
+			text-decoration: underline;
+		}
+		@keyframes fadein 
+		{
+			0%
+			{
+				opacity: 0;
+
+			}
+			100%
+			{
+				opacity: 1;
+			}
+		}
+		.content p
+		{
+			margin: 35px 25px 25px 25px;
+		}
+		.w3-select
+		{
+			background-color: transparent;
+			margin-left: 25px; 
+			width: 90%;
+			cursor: pointer;
+		}
+		option
+		{
+			color: black;
+			background-color: transparent;
+		}
+		.none
+		{
+			opacity: 0.2;
+		}
+		input[type="button"]
+		{
+			width: 450px;
+			margin : 30px 25px 25px 25px;
+			letter-spacing: 2px;
+			padding: 6px;
+		}
+		p
+		{
+			color: white;
+		}
+		#after_submit
+		{
+			position: absolute;
+			top: 30%;
+			visibility: hidden;
+			height: 600px;
+			width: 650px;
+			background: rgba(0,0,0,0.8);
+			color: white;
+		}
+		#allc
+		{
+			position: absolute;
+			height: 400px;
+			margin-top: 25px;
+			width: 650px;
+			visibility: hidden;
+		}
+		#allc h1
+		{
+			text-align: center;
+			color: #fff;
+		}
+		#allc h4
+		{
+			text-align: center;
+			font-size: 3em;
+			margin-top: 25px;
+			color: rgb(126,255,0);
+		}
+		#allc img
+		{
+			margin-left: 9%;
+			margin-top: 25px;
+			height: 300px;
+		}
+
+
+		#ok
+		{
+			position: absolute;
+			height: 400px;
+			margin-top: -400px;
+			width: 650px;
+			visibility: hidden;
+		}
+		#ok h1
+		{
+			text-align: center;
+			color: #fff;
+		}
+		#ok h4
+		{
+			text-align: center;
+			font-size: 3em;
+			margin-top: 25px;
+			color: rgb(126,255,0);
+		}
+		#ok img
+		{
+			margin-left: 9%;
+			margin-top: 25px;
+			height: 300px;
+		}
+
+
+		#good
+		{
+			position: absolute;
+			height: 400px;
+			margin-top: -400px;
+			width: 650px;
+			visibility: hidden;
+		}
+		#good h1
+		{
+			text-align: center;
+			color: #fff;
+		}
+		#good h4
+		{
+			text-align: center;
+			font-size: 3em;
+			margin-top: 25px;
+			color: rgb(126,255,0);
+		}
+		#good img
+		{
+			margin-left: 20%;
+			margin-top: 25px;
+			width: 400px;
+			height: 300px;
+		}
+
+
+		#tagain
+		{
+			visibility: hidden;
+			height: 400px;
+			margin-top: 25px;
+			width: 650px;
+		}
+		#tagain h1
+		{
+			text-align: center;
+		}
+		#tagain h4
+		{
+			text-align: center;
+			font-size: 3em;
+			margin-top: 25px;
+			color: crimson;
+		}
+		#tagain img
+		{
+			margin-left: 20%;
+			margin-top: 25px;
+			height: 300px;
+			width: 400px;
+		}
+		input[type="submit"]
+		{
+			margin-top: 35px;
+			margin-left: 5%;
+			width: 90%;
+		}
+		@media screen and (max-width: 530px	)
+		{
+			.desktop img
+			{
+				display: none;
+			}
+			.mobile img
+			{
+				display: block;
+				position: absolute;
+				top: 6%;
+				left: 5%;
+				height: 65px;
+				width: 65px;
+				
+			}
+		}
+	</style>
+
+	<script type="text/javascript">
+		//console.log(5);
+		//console.log(count);
+		var c = 0;
+		//var f =0;
+		
+		var cr = 0 ;
+		
+		function ans()
+		{
+
+			var count = 0;
+			//answers
+			var a1 = document.getElementById('question1');
+			var a2 = document.getElementById('question2');
+			var a3 = document.getElementById('question3');
+			var a4 = document.getElementById('question4');
+			var a5 = document.getElementById('question5');
+			var a6 = document.getElementById('question6');
+
+
+			var ans1 = a1.options[a1.selectedIndex].value;
+			var ans2 = a2.options[a2.selectedIndex].value ;
+			var ans3 = a3.options[a3.selectedIndex].value ;
+			var ans4 = a4.options[a4.selectedIndex].value ;
+			var ans5 = a5.options[a5.selectedIndex].value ;
+			var ans6 = a6.options[a6.selectedIndex].value ;
+
+			var f = document.getElementById("form") ;
+			f.style.visibility = 'hidden';
+			if(ans1==1)
+			{
+				count++;
+			}
+			if(ans2==1)
+			{
+				count++;
+			}
+			if(ans3==1)
+			{
+				count++;
+			}
+			if(ans4==1)
+			{
+				count++;
+			}
+			if(ans5==1)
+			{
+				count++;
+			}
+			if(ans6==1)
+			{
+				count++;
+			}
+
+			if(count==6)
+			{
+				console.log(count);
+				alert(count);
+				document.getElementById('after_submit').style.visibility = 'visible';
+				document.getElementById('allc').style.visibility = 'visible';
+			}
+			else if (count==0)
+			{
+				alert(count);
+				document.getElementById('after_submit').style.visibility = 'visible';
+				document.getElementById('tagain').style.visibility = 'visible';
+			}
+			else if(count==1||count==2||count==3)
+			{
+				var res1 = document.getElementById("s1");
+				res1.innerHTML = count;				alert(count);
+				document.getElementById('after_submit').style.visibility = 'visible';
+				document.getElementById('ok').style.visibility = 'visible';
+			}
+			else if(count==4||count==5)
+			{
+				var res2 = document.getElementById("s2");
+				res2.innerHTML = count;				
+				alert(count);
+				document.getElementById('after_submit').style.visibility = 'visible';
+				document.getElementById('good').style.visibility = 'visible';
+			}
+				//visibility
+			
+
+			
+
+			
+
+			
+
+				
+		// if(c==1)
+		// {	
+		// 	if(a1==1&&a2==1&&a3==1&&a4==1&&a5==1&&a6==1) 
+		// 	{
+		// 		document.getElementById('after_submit').style.visibility = 'visible';
+		// 		document.getElementById('allc').style.visibility = 'visible';
+		// 	}
+		// 	else if(a1==0&&a2==0&&a3==0&&a4==0&&a5==0&&a6==0) 
+		// 	{
+		// 		document.getElementById('after_submit').style.visibility = 'visible';
+		// 		document.getElementById('tagain').style.visibility = 'visible';
+		// 	}
+
+		// 	else
+		// 	{
+		// 		document.getElementById('ans').innerHTML = 'Try Again';	
+		// 	}
+		// }
+	}
+		
+	</script>
+</head>
+<body>
+	<div class="jumbotron w3-animate-top">
+		<h2 class="w3-center w3-animate-top">Quiz-Wiz</h2>
+		
+	</div>
+
+
+	<div class="intro"> 
+		<div class="desktop">
+		<img src="3.jpg" class="w3-circle " ></div>
+		<div class="mobile">
+		<img src="3.jpg" class="w3-circle " ></div>
+	</div>
+<!-- <button onclick="c1()">check</button> -->
+	<div class="w3-container" id="form">
+		<form  method="POST" name="myForm">
+			<h3 class="w3-center">Questions</h3>
+			<div class="content">
+			<p>What is the Capital of India?</p>
+			<select class="w3-select" id="question1" required>
+				<option value="" disabled selected class="none" >--Choose Your Option--</option>
+					<option value="0">Mumbai</option>
+					<option value="1">Delhi</option>
+					<option value="0">Indore</option>
+					<option value="0">Banglore</option>
+			</select>
+			
+
+			<p>How many Hours are there in a day?</p>
+			<select class="w3-select" id="question2" >
+				<option value="" disabled selected class="none">--Choose Your Option--</option>
+				<option value="0">18</option>
+				<option value="0">20</option>
+				<option value="1" >24</option>
+				<option value="0">26</option>
+			</select>
+
+			<p>Which color stands for peace and harmony in indian National flag?</p>
+			<select class="w3-select" id="question3" >
+				<option value="" disabled selected class="none">--Choose Your Option--</option>
+				<option value="0">Green</option>
+				<option value="1">Saffron</option>
+				<option value="0">White</option>
+				<option value="0">Blue</option>
+			</select> 
+
+			<P>How many Vowels are there in the English Literature?</P>
+			<select class="w3-select" id="question4" >
+				<option value="" disabled selected class="none">--Choose Your Option--</option>
+				<option value="1">5</option>
+				<option value="0">7</option>
+				<option value="0">10</option>
+				<option value="0">6</option>
+			</select>
+
+			<p>How many Continents are there in the world?</p>
+			<select class="w3-select" id="question5" >
+				<option value="" disabled selected class="none">--Choose Your Option--</option>
+				<option value="0">11</option>
+				<option value="1">7</option>
+				<option value="0">6</option>
+				<option value="0">15</option>
+			</select>
+
+			<p>Which of the Following is a Primary Color? <br>Orange,Purple,Red,Yellow</p>
+			<select class="w3-select" id="question6" >
+				<option value="" disabled selected class="none">--Choose Your Option--</option>
+				<option value="0">orange</option>
+				<option value="0">purple</option>
+				<option value="1">red</option>
+				<option value="0">yellow</option>
+			</select>
+			</div>
+
+			<input type="button" name="submit" class="btn btn-success w3-ripple" value="Submit" onclick="ans()">
+		</form>
+	</div>
+
+	<div id="after_submit">
+
+		<div id="allc">	
+			<h1 id="ans">Great Job!! You Got All correct</h1>
+			<h4>Result 6/6 100%</h4>
+			<img src="200.gif">
+		</div>
+
+		<div id="tagain">
+			<h1 id="ans">Try Again!</h1>
+			<h4>Result 0/6 (0%)</h4>
+			<img src="ta3.gif"><br>
+			<a href="Quiz.html">
+			<input type="submit" name="submit" class="btn btn-success w3-ripple" value="Try Again">	
+			</a>
+		</div>
+
+		<div id="ok">	
+			<h1 id="ans">You can Do Better!!</h1>
+			<h4>Result <span id="s1"></span>/6 </h4>
+			<img src="ta2.gif">
+			<a href="Quiz.html">
+				<input type="submit" name="submit" class="btn btn-success w3-ripple" value="Try Again">	
+				</a>
+		</div>
+
+		<div id="good">	
+			<h1 id="ans">Very Well Done!!!</h1>
+			<h4>Result <span id="s2"></span>/6 </h4>
+			<img src="b2.gif">
+			<a href="Quiz.html">
+				<input type="submit" name="submit" class="btn btn-success w3-ripple" value="Try Again">	
+				</a>
+		</div>
+
+
+</div>
+</body>
+</html>
